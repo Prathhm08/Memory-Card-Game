@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="icon.png" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="title_metric">
+        <h1 class="title_name">Memory Card Game</h1>
+        <div class="playerMetrics hidden">
+
+            <div class="playerTimer">
+                <div class="head_m">TIMER</div>
+                <div id="timer" class="timer">0:00.00</div>
+            </div>
+            <div class="playerMoves">
+                <div class="head_m">MOVES</div>
+                <div id="playerMoves" class="moves">0</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    </div>
+    <div class="button">
+        <div class="gameButtons">
+            <button id="playButton">Play</button>
+            <button class="hidden1" id="resetButton" disabled>New Game</button>
+        </div>
+        <div class="gameMetrics">
+            <div class="difficulty">
+                <label for="dropdown1">Difficulty:</label>
+                <select id="dropdown1" required>
+                    <option value="" disabled selected>Select a difficulty</option>
+                    <option value="easy">Easy</option>
+                    <!-- <option value="medium">Medium</option> -->
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="grid">
+                <label for="dropdown2">Grid Size:</label>
+                <select id="dropdown2" required>
+                    <option value="" disabled selected>Select a grid size</option>
+                    <option value="4">4x4</option>
+                    <option value="6">6x6</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Congratulations !!!🎉🎊<br> You've completed the game!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

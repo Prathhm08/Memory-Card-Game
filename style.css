@@ -1,0 +1,270 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    to bottom right,
+    rgb(24, 180, 247),
+    rgb(255, 37, 255)
+  );
+  background-attachment: fixed;
+}
+@font-face {
+  font-family: my-font;
+  src: url(assets/KOMIKAX_.ttf);
+}
+@font-face {
+  font-family: metric-my-font;
+  src: url(assets/animeace2_bld.ttf);
+}
+h1 {
+  flex: 3;
+  font-size: 4vw;
+  font-family: my-font;
+}
+.container {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.card_4 {
+  flex: 1 1 25%;
+  max-width: 17%;
+  margin: 2.5vh 1vw;
+  perspective: 1000px;
+  border-radius: 1vw;
+}
+.card__inner_4 {
+  width: 5vw;
+  height: 6vw;
+  transform-style: preserve-3d;
+  transition: all 0.5s linear;
+  border-radius: 1vw;
+}
+.card_6 {
+  flex: 1 1 25%;
+  max-width: 12%;
+  margin: 1vh 1vw;
+  perspective: 1000px;
+  border-radius: 1vw;
+}
+.card__inner_6 {
+  width: 4vw;
+  height: 4.8vw;
+  transform-style: preserve-3d;
+  transition: all 0.5s linear;
+  border-radius: 1vw;
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: whitesmoke;
+  border-radius: 0.5vw;
+}
+.back {
+  overflow: hidden;
+  z-index: -1;
+  display: block;
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(180deg);
+}
+.front {
+  transition: all 0.5s linear;
+  background-image: url(assets/back.jpg);
+  background-size: contain;
+  z-index: 1;
+}
+.return:focus {
+  outline: none;
+}
+.flipped {
+  transform: rotateY(180deg);
+}
+.hidden {
+  visibility: hidden;
+}
+.hidden1 {
+  opacity: 0;
+  position: absolute;
+  cursor: auto;
+  right: 0;
+}
+.title_metric {
+  display: flex;
+  flex-wrap: wrap;
+}
+.head_m {
+  font-size: larger;
+  border-radius: 0.5vw;
+  padding: 1vw 1vw;
+  font-family: metric-my-font;
+}
+.playerMetrics {
+  display: flex;
+  position: absolute;
+  align-items: end;
+  justify-content: space-around;
+  top: 0;
+  right: 0;
+}
+.playerMoves,
+.playerTimer {
+  display: flex;
+  width: 100%;
+  font-weight: 400;
+  flex: 1;
+  flex-direction: column;
+  margin: 0 1vw;
+}
+.moves,
+.timer {
+  font-size: x-large;
+  font-weight: 800;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.modal-content {
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  height: 50%;
+}
+.modal-content > p {
+  font-size: 6vw;
+  font-weight: 700;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  -webkit-text-stroke: 2px #fff;
+}
+.modal-content > span {
+  border: 2px solid black;
+  padding: 0 5px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 780px) {
+  .container {
+    width: 65%;
+  }
+  .card_4 {
+    flex: 1 1 25%;
+    border-radius: 10vw;
+  }
+  .card__inner_4 {
+    width: 5vh;
+    height: 6vh;
+    border-radius: 1vw;
+  }
+  .card_6 {
+    flex: 1 1 25%;
+    max-width: 17%;
+    margin: 1vh 1vw;
+  }
+  .card__inner_6 {
+    width: 5vh;
+    height: 6vh;
+    border-radius: 1vw;
+  }
+  .playerMetrics {
+    margin-right: 5px;
+    flex-direction: column;
+  }
+  .head_m {
+    font-size: 3vw;
+    border-radius: 0.5vw;
+  }
+  .playerMoves,
+  .playerTimer {
+    margin: 0 0.5vw;
+  }
+  .moves,
+  .timer {
+    font-size: 4vw;
+    font-weight: 800;
+  }
+}
+.button {
+  margin: 0 auto;
+  width: 30vw;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+button {
+  padding: 5px 10px;
+  color: white;
+  border: none;
+  border-radius: 1vw;
+  font-size: x-large;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#playButton {
+  background-color: #45a049;
+}
+#playButton:hover {
+  background-color: #35e03d;
+}
+#resetButton {
+  background-color: #ad130b;
+}
+#resetButton:hover {
+  background-color: #ec1616;
+}
+
+.gameMetrics {
+  padding: 1vw;
+}
+.gameMetrics label {
+  font-size: large;
+  font-weight: bold;
+}
+.gameMetrics select {
+  padding: 1vw 5px;
+  margin: 0.5vw;
+  font-size: large;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 20vw;
+}
