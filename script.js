@@ -86,18 +86,16 @@ function handleClick(element, grid) {
   if (open == false) {
     element.classList.add("flipped");
     card1_id = parseInt(element.getAttribute("data-id"));
+    pos1 = element.getAttribute("pos");
   } else if (open == true) {
+    pos2 = element.getAttribute("pos");
+    if (pos1 === pos2) {
+      return;
+    }
     element.classList.add("flipped");
     setTimeout(() => {
       card2_id = parseInt(element.getAttribute("data-id"));
       if (card1_id === card2_id) {
-        document
-          .querySelectorAll(`.clickcard[data-id="${card1_id}"]`)
-          .forEach(function (card) {
-            if (card.classList.contains("flipped")) {
-              card.removeEventListener("click", handleClick);
-            }
-          });
         const cardInner10 = document.querySelectorAll(
           `.card__inner_${grid}[data-id="${card1_id}"] `
         );
@@ -186,7 +184,7 @@ function initializeGame(grid, diff) {
     const html = `<div class="card_${grid}" >
     <div class="card__inner_${grid} clickcard active" data-id="${
       Math.floor(shuffledcards[index] / diff) + variation
-    }">
+    }" pos="${index}">
       <div class="front face"></div>
       <div class="back face" style="background: url(assets/${
         Math.floor(shuffledcards[index] / diff) + variation
